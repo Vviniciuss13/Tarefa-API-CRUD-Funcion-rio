@@ -1,0 +1,213 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Carlos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" size-lg="6" class="ion-text-center">
+      <h1>Carlos Vinícius Fravoini</h1>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" size-lg="6" class="ion-text-center">
+      <h2>Fatec - ADS 2° Ano</h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" size-lg="1" class="ion-text-center">
+      <ion-card>
+        <img alt="foto"src="https://www.rbsdirect.com.br/filestore/9/4/1/4/4/6/4_5795c97f2db0107/4644149_fdb5295bc7604b8.jpg?w=1024&h=1024&a=c"/>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-segment value="conhecimentos" (ionChange)="trocar($event)">
+    <ion-segment-button value="projetos">
+      <ion-label>Projetos</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="conhecimentos">
+    <ion-label>Conhecimentos</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="sobre">
+    <ion-label>Sobre mim</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ng-container *ngIf="this.selected === 'conhecimentos'">
+    <ion-row class="ion-justify-content-center" >
+      <ion-col class="ion-text-center">
+        <h3>Graduado no 2° Grau na Etec Sales Gomes</h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center" >
+      <ion-col class="ion-text-center">
+        <h3>Técnico em Desenvolvimento de Sistemas</h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center" >
+      <ion-col class="ion-text-center">
+        <h3>Cursando Análise e Desenvolvimento de Sistemas na Fatec - Tatuí</h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center" >
+      <ion-col class="ion-text-center">
+        <h3>First Prime - Inglês Intermediário</h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row size-lg="6" size="12" class="ion-justify-content-center">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Linguagens de</ion-card-subtitle>
+          <ion-card-title>Programação</ion-card-title>
+        </ion-card-header>
+  
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-thumbnail>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" alt="js">
+              </ion-thumbnail>
+              <ion-label>JavaScript</ion-label>
+            </ion-item>
+  
+            <ion-item>
+              <ion-thumbnail>
+                <img src="https://hotmart.s3.amazonaws.com/product_pictures/073a96c9-0822-4297-8df1-4dddb8703296/php.png" alt="php">
+              </ion-thumbnail>
+              <ion-label>PHP</ion-label>
+            </ion-item>
+  
+            <ion-item>
+              <ion-thumbnail>
+                <img src="https://avatars.githubusercontent.com/u/25699522?s=200&v=4" alt="c">
+              </ion-thumbnail>
+              <ion-label>Linguagem C e C#</ion-label>
+            </ion-item>
+            
+            <ion-item>
+              <ion-thumbnail>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="python">
+              </ion-thumbnail>
+              <ion-label>Python</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ng-container>
+
+  <ng-container *ngIf="this.selected === 'projetos'">
+    <ion-row class="ion-justify-content-center" >
+      <ion-col size-md="2" class="ion-text-center">
+        <ion-card>
+          <img src="https://cdn-icons-png.flaticon.com/512/2175/2175188.png" alt="img">
+          <ion-card-header>
+            <ion-title>TCC</ion-title>
+            <ion-card-content>
+              TCC
+            </ion-card-content>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-md="2" class="ion-text-center">
+        <ion-card>
+          <img src="https://cdn-icons-png.flaticon.com/512/2175/2175188.png" alt="img">
+          <ion-card-header>
+            <ion-title>TCC</ion-title>
+            <ion-card-content>
+              TCC
+            </ion-card-content>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-md="2" class="ion-text-center">
+        <ion-card>
+          <img src="https://cdn-icons-png.flaticon.com/512/2175/2175188.png" alt="img">
+          <ion-card-header>
+            <ion-title>TCC</ion-title>
+            <ion-card-content>
+              TCC
+            </ion-card-content>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center" >
+      <ion-col size-md="2" class="ion-text-center">
+        <ion-card>
+          <img src="https://cdn-icons-png.flaticon.com/512/2175/2175188.png" alt="img">
+          <ion-card-header>
+            <ion-title>TCC</ion-title>
+            <ion-card-content>
+              TCC
+            </ion-card-content>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-md="2" class="ion-text-center">
+        <ion-card>
+          <img src="https://cdn-icons-png.flaticon.com/512/2175/2175188.png" alt="img">
+          <ion-card-header>
+            <ion-title>TCC</ion-title>
+            <ion-card-content>
+              TCC
+            </ion-card-content>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-md="2" class="ion-text-center">
+        <ion-card>
+          <img src="https://cdn-icons-png.flaticon.com/512/2175/2175188.png" alt="img">
+          <ion-card-header>
+            <ion-title>TCC</ion-title>
+            <ion-card-content>
+              TCC
+            </ion-card-content>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+
+  <ng-container *ngIf="this.selected === 'sobre'">
+    <ion-row class="ion-justify-content-center" >
+      <ion-col class="ion-text-center">
+        <h3>Graduado no 2° Grau na Etec Sales Gomes</h3>
+        <h3>Técnico em Desenvolvimento de Sistemas</h3>
+        <h3>Cursando Análise e Desenvolvimento de Sistemas</h3>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" size-lg="8" class="ion-text-center">
+      <p><a href="https://github.com/Vviniciuss13">GitHub</a></p>
+    </ion-col>
+    <ion-col>
+      <p><a href="https://ogimg.infoglobo.com.br/in/25024797-3d1-e8d/FT1086A/shrek.jpg">sei la man</a></p>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center"> Feito por Carlinhos</ion-title>
+  </ion-toolbar>
+</ion-footer>

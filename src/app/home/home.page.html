@@ -1,0 +1,126 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Funcionários
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row class="ion-justify-content-center row">
+    <ion-col size-lg="9">
+      <form #searchForm="ngForm" (ngSubmit)="pesquisar(searchForm.value)">
+        <ion-row size-lg=9 class="ion-align-items-center ion-justify-content-around">
+          <ion-col size="12" size-lg="6">
+            <ion-searchbar class=pesquisa label=Pesquisar name="pesquisar" ngModel></ion-searchbar>
+          </ion-col>
+          <ion-col size="12" size-lg="4" class="ion-justify-content-center">
+            <ion-item class="check">
+              <ion-checkbox name="cargo" justify="start" ngModel=false>Cargo</ion-checkbox>
+              <ion-checkbox name="nome" justify="start" ngModel=false>Nome</ion-checkbox>
+              <ion-checkbox name="cidade" justify="start" ngModel=false>Cidade</ion-checkbox>
+              <ion-checkbox name="telefone" justify="start" ngModel=false>Telefone</ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <ion-col size="12" size-lg="2">
+            <ion-item class="btn">
+              <ion-button type="submit" slot="end">Pesquisar</ion-button>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center row">
+    <ion-col size-lg="9" size-md="12">
+      <ion-list class="list">
+        <ng-container *ngIf="type == 'object'">
+          <ion-row size="12" size-lg="3">
+            <ion-col>
+              <ion-item *ngFor="let funcionario of funcionarios">
+                <ion-label class="ion-text-wrap">Nome: {{ funcionario.Nome }} - Cargo: {{ funcionario.Cargo }} - Cidade: {{ funcionario.Cidade }} - Telefone: {{ funcionario.Fone }}</ion-label>
+                <ion-button color="warning" (click)="selecionar(funcionario.CodFun); setOpen()">
+                  <ion-icon name="create-outline"></ion-icon>
+                </ion-button>
+                <ion-button color="danger" (click)="remover(funcionario.CodFun)">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+        <ng-container *ngIf="type == 'string'">
+          <ion-item>
+            <p>{{funcionarios}}</p>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+
+      <ion-row>
+        <ion-col>
+          <ion-item class="btn-modal" lines="none">
+            <ion-button size="medium" color="success" (click)=setOpen()>Inserir</ion-button>
+          </ion-item>
+            <!-- INSERIR MODAL -->
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-buttons slot="start">
+                      <ion-button (click)="setOpen()">Cancel</ion-button>
+                    </ion-buttons>
+                    <ion-title>Inserir Funcionario</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button type="submit" (click)="funcionario.id != '' ? atualizar(formFuncionario.value) : inserir(formFuncionario.value); setOpen();" [strong]="true">Confirm</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <ion-col class="ion-text-center">
+                    <h1>{{ funcionario.id ? 'Editar' : 'Inserir'}} Funcionario</h1>
+                  </ion-col>
+                  <form #formFuncionario="ngForm"> <!-- variavel de template tipo um let -->
+                    <ion-item *ngIf="funcionario.id">
+                      <ion-input label="id" name="id" [(ngModel)]="funcionario.id" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input label="Nome" name="nome" [(ngModel)]="funcionario.nome" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input label="Sobrenome" name="sobrenome" [(ngModel)]="funcionario.sobrenome" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input label="Cargo" name="cargo" [(ngModel)]="funcionario.cargo" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input label="Data de Nascimento" name="data_nasc" [(ngModel)]="funcionario.data_nasc" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input label="Endereco" name="endereco" [(ngModel)]="funcionario.endereco" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input label="Cidade" name="cidade" [(ngModel)]="funcionario.cidade" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input label="Cep" name="cep" [(ngModel)]="funcionario.cep" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input label="Pais" name="pais" [(ngModel)]="funcionario.pais" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input label="Fone" name="fone" [(ngModel)]="funcionario.fone" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-input label="Salario" name="salario" [(ngModel)]="funcionario.salario" type="text"></ion-input>
+                    </ion-item>
+                  </form>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
